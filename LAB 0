@@ -1,0 +1,51 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset
+file_path = "RidersSummary.csv"   # update path if needed
+data = pd.read_csv(file_path)
+
+# ---------------------------
+# 1. Distribution of points per class
+# ---------------------------
+plt.figure(figsize=(8,5))
+data.groupby("class")["points"].sum().plot(kind="bar", color="skyblue", edgecolor="black")
+plt.title("Total Points by Class")
+plt.ylabel("Points")
+plt.xlabel("Class")
+plt.show()
+
+# ---------------------------
+# 2. Wins per season trend
+# ---------------------------
+plt.figure(figsize=(10,5))
+data.groupby("season")["wins"].sum().plot(kind="line", marker="o", color="green")
+plt.title("Total Wins per Season")
+plt.xlabel("Season")
+plt.ylabel("Wins")
+plt.grid(True, linestyle="--", alpha=0.6)
+plt.show()
+
+# ---------------------------
+# 3. Top 10 riders by total podiums
+# ---------------------------
+plt.figure(figsize=(12,6))
+data.groupby("rider_name")["podium"].sum().sort_values(ascending=False).head(10).plot(
+    kind="bar", color="orange", edgecolor="black"
+)
+plt.title("Top 10 Riders by Podiums")
+plt.ylabel("Total Podiums")
+plt.xlabel("Rider")
+plt.xticks(rotation=45, ha="right")
+plt.show()
+
+# ---------------------------
+# 4. Races vs Points correlation scatter plot
+# ---------------------------
+plt.figure(figsize=(8,6))
+plt.scatter(data["races_participated"], data["points"], alpha=0.6, color="purple")
+plt.title("Races Participated vs Points")
+plt.xlabel("Races Participated")
+plt.ylabel("Points")
+plt.grid(True, linestyle="--", alpha=0.6)
+plt.show()
