@@ -1,0 +1,11 @@
+﻿id,age,gender,income,couupation,years_employed,satifaction_level,purchase history
+0,28,Male,55000,Engineer,3,7,high
+1,34,Female,72000,Teacher,8,9,medium
+2,45,Male,85000,Manager,,6,low
+3,23,Female,48000,Designer,1,8,high
+4,30,Male,60000,Developer,5,,low
+5,38,Female,68000,Analyst,10,6,medium
+6,50,Male,90000,Consultant,15,,high
+7,29,Female,57000,Architect,4,9,low
+8,41,Male,78000,Accountant,,7,high 
+9,35,Female,65000,Marketing,7,8,medium
